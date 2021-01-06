@@ -1,6 +1,8 @@
 {{ define "main" }}
 <div class="text-center pt-10">
-    <h1 class="text-5xl">{{ .Page.Title }}</h1>
-    <h3 class="text-base italic font-normal">{{ .Page.Params.Slogan }}</h3>
+    <h1 class="text-5xl">{{ .Page.Params.title }}</h1>
+    <h3 class="text-base italic font-normal">{{ .Page.Params.slogan }}</h3>
+    <p class="text-base font-normal">{{ .Page.Params.sentence }}</p>
+    <p class="text-base font-normal">{{ .Page.Params.random }}</p>
 </div>
 {{ end }}
