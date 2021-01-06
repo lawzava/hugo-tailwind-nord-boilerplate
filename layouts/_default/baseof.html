@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html prefix="og: http://ogp.me/ns#" lang='{{ .Language }}'>
     {{ partial "head.html" . }}
-    <body class="flex flex-col min-h-screen">
-        {{- partial "header.html" . -}}
-            <main class="flex-1 mx-4 md:mx-12 lg:mx-24 mt-4 sm:mt-16">
-                {{- block "main" . }}{{- end }}
-            </main>
-        {{- partial "footer.html" . -}}
+    <body class="antialiased bg-body text-body font-body">
+        <div class="">
+            {{- block "main" . }}{{- end }}
+        </div>
     </body>
 </html>

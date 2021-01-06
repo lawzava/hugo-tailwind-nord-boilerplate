@@ -85,34 +85,6 @@
     <meta property="article:section" content="{{ index . 0 }}" />
     {{ end }}
 
-    <script defer type="application/ld+json">
-        {
-            "@context": "http://schema.org",
-            "@type": "Article",
-            "headline": {{ .Title }},
-        "author": {
-        "@type": "Person",
-        "name": "{{ .Site.Params.github }}"
-        },
-        "datePublished": "{{ .Date.Format "2006-01-02" }}",
-        "description": {{ .Site.Params.description }},
-        "wordCount": {{ .WordCount }},
-        "mainEntityOfPage": "True",
-        "dateModified": "{{ .Lastmod.Format "2006-01-02" }}",
-        "image": {
-        "@type": "imageObject",
-        "url": "{{ with .Site.Params.image }}{{ .Permalink }}{{ end }}"
-        },
-        "publisher": {
-        "@type": "Organization",
-        "name": "{{ .Site.Title }}",
-        "logo": {
-        "@type": "imageObject",
-        "url": "https://lawzava.com/img/lawzava.svg"
-        }
-        }
-        }
-    </script>
     {{ else }}
     <meta property="og:type" content="website" />
     <meta name="description" content="{{ .Site.Params.description }}" />
@@ -124,18 +96,6 @@
     {{ if or (eq .Section "about") (eq .Section "contact") }}
     <meta property="og:type" content="website" />
     <meta name="author" content="{{ .Site.Params.author }}" />
-    <script defer type="application/ld+json">
-        {
-            "@context": "http://schema.org",
-            "@type": "WebSite",
-            "url": "{{ .Permalink }}",
-            "sameAs": [
-                "{{ .Site.Params.github }}"
-            ],
-            "name": "{{ .Title }}",
-            "logo": "https://lawzava.com/favicon.svg"
-        }
-    </script>
     {{ end }}
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐧</text></svg>">
 
@@ -161,10 +121,13 @@
     <meta name="apple-touch-fullscreen" content="yes" />
 
     {{- $styles := resources.Get "css/styles.css" | postCSS (dict "config" "./assets/css/postcss.config.js") -}}
+    {{- $scripts := resources.Get "js/site.js"}}
     {{- if .Site.IsServer }}
-    <link rel="stylesheet" href="{{ $styles.RelPermalink }}">
+        <link rel="stylesheet" href="{{ $styles.RelPermalink }}">
+        <script src="{{ $scripts.RelPermalink }}"></script>
     {{ else }}
     {{- $styles := $styles| minify | fingerprint | resources.PostProcess -}}
-    <link rel="stylesheet" href="{{ $styles.Permalink }}">
+        <link rel="stylesheet" href="{{ $styles.Permalink }}">
+        <script src="{{ $scripts.Permalink }}"></script>
     {{ end -}}
 </head>
