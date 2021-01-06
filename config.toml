@@ -34,15 +34,33 @@ disableKinds = ["taxonomy", "taxonomyTerm"]
 
 [menu]
     [[menu.main]]
-        identifier = "home"
-        name = "Home"
-        title = "home"
-        url = "/"
+        identifier = "product"
+        name = "Product"
+        title = "Product"
+        url = "#product"
         weight = 1
-
     [[menu.main]]
-        identifier = "dome"
-        name = "Dome"
-        title = "Dome"
-        url = "#dome"
+        identifier = "features"
+        name = "Features"
+        title = "Features"
+        url = "#features"
         weight = 2
+    [[menu.main]]
+        identifier = "testimonials"
+        name = "Testimonials"
+        title = "Testimonials"
+        url = "#testimonials"
+        weight = 3
+    [[menu.main]]
+        identifier = "team"
+        name = "Team"
+        title = "Team"
+        url = "#team"
+        weight = 4
+    [[menu.main]]
+        identifier = "contact"
+        name = "Contact"
+        title = "Contact"
+        url = "#contact"
+        weight = 5
+
