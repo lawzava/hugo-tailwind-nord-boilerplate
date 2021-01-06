@@ -1,4 +1,4 @@
-# Hugo Tailwind Nord Theme
+# Hugo Tailwind Nord Boilerplate
 
 ## Prerequisites
 
@@ -8,48 +8,16 @@ This is mentioned in the [Hugo Docs](https://gohugo.io/hugo-pipes/postcss/).
 ```bash
 npm install -g postcss-cli
 npm install -g autoprefixer
+npm install
 ```
 
 Make sure to use a minimum Hugo version of v0.80.0 and above.
 
-## Usage directly within a Hugo repo as a theme package
+## Usage
 
-- start a new Hugo site
+Run `hugo server --disableFastRender` for livereload local version.
 
-```bash
-hugo new site mysite
-```
-
-- switch into the theme folder and clone this repo
-
-```bash
-cd mysite/themes
-git clone https://github.com/lawzava/hugo-tailwind-nord-theme
-```
-
-- switch into the newly created theme folder and install the node packages
-
-```bash
-cd hugo-tailwind-nord-theme
-rm -rf .git
-npm install
-```
-
-- edit the `config.toml` file in `mysite/` to reflect the hugo-tailwind-nord-theme
-
-```toml
-# in config.toml
-theme = "hugo-tailwind-nord-theme" 
-```
-
-- switch to the root of the new-site repo and start a server to view the index site
-
-```bash
-cd mysite
-hugo server --disableFastRender
-```
-
-Your content should go into `mysite/content`, the development of the site layout is done within `mysite/themes/hugo-tailwind-nord-theme/layout`.
+Run `hugo --gc --minify` to compile a production-ready version into `public` directory.
 
 ## Reference
 
